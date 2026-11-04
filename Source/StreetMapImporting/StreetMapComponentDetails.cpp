@@ -12,6 +12,7 @@
 #include "Widgets/Notifications/SNotificationList.h"
 #include "Framework/Notifications/NotificationManager.h"
 #include "Misc/AssertionMacros.h"
+#include "Styling/CoreStyle.h"
 #include "StreetMapComponent.h"
 
 #define LOCTEXT_NAMESPACE "StreetMapComponentDetails"
@@ -33,7 +34,7 @@ void FStreetMapComponentDetails::CustomizeDetails(IDetailLayoutBuilder& DetailBu
 {
 	LastDetailBuilderPtr = &DetailBuilder;
 
-	TArray <TWeakObjectPtr<UObject>> SelectedObjects = DetailBuilder.GetDetailsView()->GetSelectedObjects();
+	TArray <TWeakObjectPtr<UObject>> SelectedObjects = DetailBuilder.GetDetailsViewSharedPtr()->GetSelectedObjects();
 
 	for (const TWeakObjectPtr<UObject>& Object : SelectedObjects)
 	{
@@ -48,7 +49,7 @@ void FStreetMapComponentDetails::CustomizeDetails(IDetailLayoutBuilder& DetailBu
 
 	if (SelectedStreetMapComponent == nullptr)
 	{
-		TArray<TWeakObjectPtr<AActor>> SelectedActors = DetailBuilder.GetDetailsView()->GetSelectedActors();
+		TArray<TWeakObjectPtr<AActor>> SelectedActors = DetailBuilder.GetDetailsViewSharedPtr()->GetSelectedActors();
 
 		for (const TWeakObjectPtr<UObject>& Object : SelectedObjects)
 		{
@@ -154,7 +155,7 @@ void FStreetMapComponentDetails::CustomizeDetails(IDetailLayoutBuilder& DetailBu
 			.VAlign(VAlign_Center)
 			[
 				SNew(STextBlock)
-				.Font(FSlateFontInfo("Verdana", 8))
+				.Font(FCoreStyle::GetDefaultFontStyle("Regular", 8))
 			.Text(FText::FromString(NumVerticesToString))
 			]
 			+ SHorizontalBox::Slot()
@@ -162,7 +163,7 @@ void FStreetMapComponentDetails::CustomizeDetails(IDetailLayoutBuilder& DetailBu
 			.VAlign(VAlign_Center)
 			[
 				SNew(STextBlock)
-				.Font(FSlateFontInfo("Verdana", 8))
+				.Font(FCoreStyle::GetDefaultFontStyle("Regular", 8))
 			.Text(FText::FromString(NumTrianglesToString))
 			]
 			+ SHorizontalBox::Slot()
@@ -170,7 +171,7 @@ void FStreetMapComponentDetails::CustomizeDetails(IDetailLayoutBuilder& DetailBu
 				.VAlign(VAlign_Center)
 				[
 					SNew(STextBlock)
-					.Font(FSlateFontInfo("Verdana", 8))
+					.Font(FCoreStyle::GetDefaultFontStyle("Regular", 8))
 				.Text(FText::FromString(CollisionStatusToString))
 				]
 			];

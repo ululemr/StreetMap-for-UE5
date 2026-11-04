@@ -2,6 +2,10 @@
 #include "StreetMapComponent.h"
 #include "Materials/MaterialRenderProxy.h"
 #include "Runtime/Engine/Public/SceneManagement.h"
+#include "Engine/Engine.h"
+#include "Materials/Material.h"
+#include "SceneInterface.h"
+#include "SceneView.h"
 
 FStreetMapSceneProxy::FStreetMapSceneProxy(const UStreetMapComponent* InComponent)
 	: FPrimitiveSceneProxy(InComponent),

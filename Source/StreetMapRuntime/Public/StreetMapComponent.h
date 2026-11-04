@@ -3,6 +3,7 @@
 #include "Components/MeshComponent.h"
 #include "Interfaces/Interface_CollisionDataProvider.h"
 #include "MaterialDomain.h"
+#include "Materials/Material.h"
 #include "../StreetMapSceneProxy.h"
 #include "StreetMapComponent.generated.h"
 

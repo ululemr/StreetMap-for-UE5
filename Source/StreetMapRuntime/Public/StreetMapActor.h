@@ -1,4 +1,5 @@
 #pragma once
+#include "GameFramework/Actor.h"
 #include "StreetMapActor.generated.h"
 
 /** An actor that renders a street map mesh component */
