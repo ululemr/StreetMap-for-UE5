@@ -22,7 +22,7 @@ void FStreetMapSceneProxy::Init(const UStreetMapComponent* InComponent, const TA
 	IndexBuffer32.Indices = Indices;
 
 	MaterialInterface = nullptr;
-	this->MaterialRelevance = InComponent->GetMaterialRelevance(GetScene().GetFeatureLevel());
+	this->MaterialRelevance = InComponent->GetMaterialRelevance(GetScene().GetShaderPlatform());
 
 
 	// Copy vertex data
